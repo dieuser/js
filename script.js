@@ -11,6 +11,12 @@ removeElement.addEventListener("click", removeHandler)
 const removeAllElement = document.getElementById("remAllBtn")
 removeAllElement.addEventListener("click", removeAllHandler)
 
+const removeFirstElement = document.getElementById("remFirstBtn")
+removeFirstElement.addEventListener("click", removeFirstHandler)
+
+const removeLastElement = document.getElementById("remLastBtn")
+removeLastElement.addEventListener("click", removeLastHandler)
+
 const inputFieldElement = document.getElementById("inputField")
 const outputListElement = document.getElementById("todoOutput")
 
@@ -52,6 +58,18 @@ function RemAllTodo(){
 	}
 }
 
+function RemFirstTodo (){
+	if (outputListElement.hasChildNodes()) {
+    outputListElement.removeChild(outputListElement.firstChild);
+	}
+	
+}
+
+function RemLastTodo () {
+	if (outputListElement.hasChildNodes()) {
+    outputListElement.removeChild(outputListElement.lastChild);
+	}
+}
 // Handlers
 function addHandler (event) {
     event.preventDefault();
@@ -67,4 +85,13 @@ function removeAllHandler (event) {
 	event.preventDefault();
 	RemAllTodo();
 	inputFieldElement.value = "";
+}
+
+function removeFirstHandler() {
+	event.preventDefault();
+	RemFirstTodo();
+}
+function removeLastHandler() {
+	event.preventDefault();
+	RemLastTodo();
 }
